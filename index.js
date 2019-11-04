@@ -28,7 +28,9 @@ io.on("connection", socket => {
   socket.on("incoming data", (data) => {
     //Here we broadcast it out to all other sockets EXCLUDING the socket which sent us the data
     console.log("hit",data);
-    socket.broadcast.emit("outgoing data", data);
+    socket.broadcast.emit("outgoing data", data => {
+      console.log(data)
+    });
   });
 
   //A special namespace "disconnect" for when a client disconnects
