@@ -45,6 +45,7 @@ router.post('/', (req, res) => {
             console.log(error);
             res.status(500).json({
                 message: 'Error adding the hub',
+                body:req.body
             });
         });
 });
